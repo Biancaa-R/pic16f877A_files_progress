@@ -1,0 +1,26 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F877A ]
+[d frameptr 0 ]
+"16 C:\Users\Biancaa. R\MPLABXProjects\blinky.X\blinky.c
+[v _main main `(v  1 e 1 0 ]
+"10 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"216 D:/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc/pic16f877a.h
+[v _PORTB PORTB `VEuc  1 e 1 @6 ]
+"1375
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+"2687
+[v _RB3 RB3 `VEb  1 e 0 @51 ]
+"16 C:\Users\Biancaa. R\MPLABXProjects\blinky.X\blinky.c
+[v _main main `(v  1 e 1 0 ]
+{
+"28
+} 0
