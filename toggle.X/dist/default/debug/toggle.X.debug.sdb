@@ -1,0 +1,35 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F877A ]
+[d frameptr 0 ]
+"10 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"9 C:\Users\Biancaa. R\MPLABXProjects\toggle.X\toggle.c
+[v _init_config init_config `(v  1 e 1 0 ]
+"14
+[v _main main `(i  1 e 2 0 ]
+"216 D:/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc/pic16f877a.h
+[v _PORTB PORTB `VEuc  1 e 1 @6 ]
+"1375
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+"14 C:\Users\Biancaa. R\MPLABXProjects\toggle.X\toggle.c
+[v _main main `(i  1 e 2 0 ]
+{
+"24
+[v main@i_32 i `ui  1 a 2 2 ]
+"20
+[v main@i i `ui  1 a 2 0 ]
+"28
+} 0
+"9
+[v _init_config init_config `(v  1 e 1 0 ]
+{
+"13
+} 0
