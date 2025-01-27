@@ -6,4 +6,5 @@
 List of files:
 1. blinky
 2. toggle
-3. switch control (for considering input and output)
+3. switch control (for considering input and output) ---> Level triggered
+4. edge_trig (for edge triggered io control)
