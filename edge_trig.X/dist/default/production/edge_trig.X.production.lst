@@ -1,0 +1,462 @@
+
+
+Microchip MPLAB XC8 Assembler V3.00 build 20241204225717 
+                                                                                               Mon Jan 27 20:44:15 2025
+
+Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1 
+     1                           	processor	16F877A
+     2                           	pagewidth 120
+     3                           	opt	flic
+     4                           	psect	idataCOMMON,global,class=CODE,space=0,delta=2,noexec
+     5                           	psect	cinit,global,class=CODE,space=0,merge=1,delta=2
+     6                           	psect	dataCOMMON,global,class=COMMON,space=1,delta=1,noexec
+     7                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1,noexec
+     8                           	psect	maintext,global,class=CODE,space=0,split=1,delta=2
+     9                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=2,noexec
+    10                           	dabs	1,0x7E,2
+    11     0000                     
+    12                           ; Generated 12/10/2023 GMT
+    13                           ; 
+    14                           ; Copyright © 2023, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    15                           ; All rights reserved.
+    16                           ; 
+    17                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    18                           ; 
+    19                           ; Redistribution and use in source and binary forms, with or without modification, are
+    20                           ; permitted provided that the following conditions are met:
+    21                           ; 
+    22                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    23                           ;        conditions and the following disclaimer.
+    24                           ; 
+    25                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    26                           ;        of conditions and the following disclaimer in the documentation and/or other
+    27                           ;        materials provided with the distribution. Publication is not required when
+    28                           ;        this file is used in an embedded application.
+    29                           ; 
+    30                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    31                           ;        software without specific prior written permission.
+    32                           ; 
+    33                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    34                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    35                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    36                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    37                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    38                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    39                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    40                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    41                           ; 
+    42                           ; 
+    43                           ; Code-generator required, PIC16F877A Definitions
+    44                           ; 
+    45                           ; SFR Addresses
+    46     0004                     fsr             equ	4
+    47     0004                     fsr0            equ	4
+    48     0000                     indf            equ	0
+    49     0000                     indf0           equ	0
+    50     0002                     pc              equ	2
+    51     0002                     pcl             equ	2
+    52     000A                     pclath          equ	10
+    53     0003                     status          equ	3
+    54     0000                     INDF            equ	0	;# 
+    55     0001                     TMR0            equ	1	;# 
+    56     0002                     PCL             equ	2	;# 
+    57     0003                     STATUS          equ	3	;# 
+    58     0004                     FSR             equ	4	;# 
+    59     0005                     PORTA           equ	5	;# 
+    60     0006                     PORTB           equ	6	;# 
+    61     0007                     PORTC           equ	7	;# 
+    62     0008                     PORTD           equ	8	;# 
+    63     0009                     PORTE           equ	9	;# 
+    64     000A                     PCLATH          equ	10	;# 
+    65     000B                     INTCON          equ	11	;# 
+    66     000C                     PIR1            equ	12	;# 
+    67     000D                     PIR2            equ	13	;# 
+    68     000E                     TMR1            equ	14	;# 
+    69     000E                     TMR1L           equ	14	;# 
+    70     000F                     TMR1H           equ	15	;# 
+    71     0010                     T1CON           equ	16	;# 
+    72     0011                     TMR2            equ	17	;# 
+    73     0012                     T2CON           equ	18	;# 
+    74     0013                     SSPBUF          equ	19	;# 
+    75     0014                     SSPCON          equ	20	;# 
+    76     0015                     CCPR1           equ	21	;# 
+    77     0015                     CCPR1L          equ	21	;# 
+    78     0016                     CCPR1H          equ	22	;# 
+    79     0017                     CCP1CON         equ	23	;# 
+    80     0018                     RCSTA           equ	24	;# 
+    81     0019                     TXREG           equ	25	;# 
+    82     001A                     RCREG           equ	26	;# 
+    83     001B                     CCPR2           equ	27	;# 
+    84     001B                     CCPR2L          equ	27	;# 
+    85     001C                     CCPR2H          equ	28	;# 
+    86     001D                     CCP2CON         equ	29	;# 
+    87     001E                     ADRESH          equ	30	;# 
+    88     001F                     ADCON0          equ	31	;# 
+    89     0081                     OPTION_REG      equ	129	;# 
+    90     0085                     TRISA           equ	133	;# 
+    91     0086                     TRISB           equ	134	;# 
+    92     0087                     TRISC           equ	135	;# 
+    93     0088                     TRISD           equ	136	;# 
+    94     0089                     TRISE           equ	137	;# 
+    95     008C                     PIE1            equ	140	;# 
+    96     008D                     PIE2            equ	141	;# 
+    97     008E                     PCON            equ	142	;# 
+    98     0091                     SSPCON2         equ	145	;# 
+    99     0092                     PR2             equ	146	;# 
+   100     0093                     SSPADD          equ	147	;# 
+   101     0094                     SSPSTAT         equ	148	;# 
+   102     0098                     TXSTA           equ	152	;# 
+   103     0099                     SPBRG           equ	153	;# 
+   104     009C                     CMCON           equ	156	;# 
+   105     009D                     CVRCON          equ	157	;# 
+   106     009E                     ADRESL          equ	158	;# 
+   107     009F                     ADCON1          equ	159	;# 
+   108     010C                     EEDATA          equ	268	;# 
+   109     010D                     EEADR           equ	269	;# 
+   110     010E                     EEDATH          equ	270	;# 
+   111     010F                     EEADRH          equ	271	;# 
+   112     018C                     EECON1          equ	396	;# 
+   113     018D                     EECON2          equ	397	;# 
+   114     0000                     INDF            equ	0	;# 
+   115     0001                     TMR0            equ	1	;# 
+   116     0002                     PCL             equ	2	;# 
+   117     0003                     STATUS          equ	3	;# 
+   118     0004                     FSR             equ	4	;# 
+   119     0005                     PORTA           equ	5	;# 
+   120     0006                     PORTB           equ	6	;# 
+   121     0007                     PORTC           equ	7	;# 
+   122     0008                     PORTD           equ	8	;# 
+   123     0009                     PORTE           equ	9	;# 
+   124     000A                     PCLATH          equ	10	;# 
+   125     000B                     INTCON          equ	11	;# 
+   126     000C                     PIR1            equ	12	;# 
+   127     000D                     PIR2            equ	13	;# 
+   128     000E                     TMR1            equ	14	;# 
+   129     000E                     TMR1L           equ	14	;# 
+   130     000F                     TMR1H           equ	15	;# 
+   131     0010                     T1CON           equ	16	;# 
+   132     0011                     TMR2            equ	17	;# 
+   133     0012                     T2CON           equ	18	;# 
+   134     0013                     SSPBUF          equ	19	;# 
+   135     0014                     SSPCON          equ	20	;# 
+   136     0015                     CCPR1           equ	21	;# 
+   137     0015                     CCPR1L          equ	21	;# 
+   138     0016                     CCPR1H          equ	22	;# 
+   139     0017                     CCP1CON         equ	23	;# 
+   140     0018                     RCSTA           equ	24	;# 
+   141     0019                     TXREG           equ	25	;# 
+   142     001A                     RCREG           equ	26	;# 
+   143     001B                     CCPR2           equ	27	;# 
+   144     001B                     CCPR2L          equ	27	;# 
+   145     001C                     CCPR2H          equ	28	;# 
+   146     001D                     CCP2CON         equ	29	;# 
+   147     001E                     ADRESH          equ	30	;# 
+   148     001F                     ADCON0          equ	31	;# 
+   149     0081                     OPTION_REG      equ	129	;# 
+   150     0085                     TRISA           equ	133	;# 
+   151     0086                     TRISB           equ	134	;# 
+   152     0087                     TRISC           equ	135	;# 
+   153     0088                     TRISD           equ	136	;# 
+   154     0089                     TRISE           equ	137	;# 
+   155     008C                     PIE1            equ	140	;# 
+   156     008D                     PIE2            equ	141	;# 
+   157     008E                     PCON            equ	142	;# 
+   158     0091                     SSPCON2         equ	145	;# 
+   159     0092                     PR2             equ	146	;# 
+   160     0093                     SSPADD          equ	147	;# 
+   161     0094                     SSPSTAT         equ	148	;# 
+   162     0098                     TXSTA           equ	152	;# 
+   163     0099                     SPBRG           equ	153	;# 
+   164     009C                     CMCON           equ	156	;# 
+   165     009D                     CVRCON          equ	157	;# 
+   166     009E                     ADRESL          equ	158	;# 
+   167     009F                     ADCON1          equ	159	;# 
+   168     010C                     EEDATA          equ	268	;# 
+   169     010D                     EEADR           equ	269	;# 
+   170     010E                     EEDATH          equ	270	;# 
+   171     010F                     EEADRH          equ	271	;# 
+   172     018C                     EECON1          equ	396	;# 
+   173     018D                     EECON2          equ	397	;# 
+   174                           
+   175                           	psect	idataCOMMON
+   176     07C2                     __pidataCOMMON:
+   177                           
+   178                           ;initializer for _once
+   179     07C2  3401               	retlw	1
+   180     07C3  3400               	retlw	0
+   181     0040                     _RD0            set	64
+   182     0033                     _RB3            set	51
+   183     0440                     _TRISD0         set	1088
+   184     0433                     _TRISB3         set	1075
+   185                           
+   186                           	psect	cinit
+   187     07F0                     start_initialization:	
+   188                           ; #config settings
+   189                           
+   190     07F0                     __initialization:
+   191                           
+   192                           ; Initialize objects allocated to COMMON
+   193     07F0  120A  118A  27C2  120A  118A  	fcall	__pidataCOMMON	;fetch initializer
+   194     07F5  00F0               	movwf	__pdataCOMMON& (0+127)
+   195     07F6  120A  118A  27C3  120A  118A  	fcall	__pidataCOMMON+1	;fetch initializer
+   196     07FB  00F1               	movwf	(__pdataCOMMON+1)& (0+127)
+   197     07FC                     end_of_initialization:	
+   198                           ;End of C runtime variable initialization code
+   199                           
+   200     07FC                     __end_of__initialization:
+   201     07FC  0183               	clrf	3
+   202     07FD  120A  118A  2FC4   	ljmp	_main	;jump to C main() function
+   203                           
+   204                           	psect	dataCOMMON
+   205     0070                     __pdataCOMMON:
+   206     0070                     _once:
+   207     0070                     	ds	2
+   208                           
+   209                           	psect	cstackCOMMON
+   210     0072                     __pcstackCOMMON:
+   211     0072                     ?_main:
+   212     0072                     main@wait:	
+   213                           ; 2 bytes @ 0x0
+   214                           
+   215     0072                     ??_main:	
+   216                           ; 2 bytes @ 0x0
+   217                           
+   218                           
+   219                           ; 1 bytes @ 0x0
+   220     0072                     	ds	2
+   221                           
+   222                           	psect	maintext
+   223     07C4                     __pmaintext:	
+   224 ;;
+   225 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   226 ;;
+   227 ;; *************** function _main *****************
+   228 ;; Defined at:
+   229 ;;		line 14 in file "main.c"
+   230 ;; Parameters:    Size  Location     Type
+   231 ;;		None
+   232 ;; Auto vars:     Size  Location     Type
+   233 ;;  wait            2    0[COMMON] unsigned int 
+   234 ;; Return value:  Size  Location     Type
+   235 ;;                  2   17[None  ] int 
+   236 ;; Registers used:
+   237 ;;		wreg, status,2, status,0
+   238 ;; Tracked objects:
+   239 ;;		On entry : B00/0
+   240 ;;		On exit  : 0/0
+   241 ;;		Unchanged: 0/0
+   242 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   243 ;;      Params:         0       0       0       0       0
+   244 ;;      Locals:         2       0       0       0       0
+   245 ;;      Temps:          0       0       0       0       0
+   246 ;;      Totals:         2       0       0       0       0
+   247 ;;Total ram usage:        2 bytes
+   248 ;; This function calls:
+   249 ;;		Nothing
+   250 ;; This function is called by:
+   251 ;;		Startup code after reset
+   252 ;; This function uses a non-reentrant model
+   253 ;;
+   254                           
+   255     07C4                     _main:	
+   256                           ;psect for function _main
+   257                           
+   258     07C4                     l18:	
+   259                           ;incstack = 0
+   260                           ; Regs used in _main: [wreg+status,2+status,0]
+   261                           ;main.c: 16:     }
+   262                           
+   263     07C4                     l571:
+   264                           
+   265                           ;main.c: 17: if(RB3==1){
+   266     07C4  30F4               	movlw	244
+   267     07C5  00F2               	movwf	main@wait
+   268     07C6  3001               	movlw	1
+   269     07C7  00F3               	movwf	main@wait+1
+   270     07C8                     l577:
+   271     07C8  3001               	movlw	1
+   272     07C9  02F2               	subwf	main@wait,f
+   273     07CA  3000               	movlw	0
+   274     07CB  1C03               	skipc
+   275     07CC  03F3               	decf	main@wait+1,f
+   276     07CD  02F3               	subwf	main@wait+1,f
+   277     07CE                     l579:
+   278     07CE  0872               	movf	main@wait,w
+   279     07CF  0473               	iorwf	main@wait+1,w
+   280     07D0  1D03               	btfss	3,2
+   281     07D1  2FD3               	goto	u11
+   282     07D2  2FD4               	goto	u10
+   283     07D3                     u11:
+   284     07D3  2FC8               	goto	l577
+   285     07D4                     u10:
+   286     07D4                     l20:
+   287                           
+   288                           ;main.c: 18: 
+   289     07D4  1283               	bcf	3,5	;RP0=0, select bank0
+   290     07D5  1303               	bcf	3,6	;RP1=0, select bank0
+   291     07D6  1986               	btfsc	6,3	;volatile
+   292     07D7  2FD9               	goto	u21
+   293     07D8  2FDA               	goto	u20
+   294     07D9                     u21:
+   295     07D9  2FE4               	goto	l587
+   296     07DA                     u20:
+   297     07DA                     l581:
+   298     07DA  0370               	decf	_once,w
+   299     07DB  0471               	iorwf	_once+1,w
+   300     07DC  1D03               	btfss	3,2
+   301     07DD  2FDF               	goto	u31
+   302     07DE  2FE0               	goto	u30
+   303     07DF                     u31:
+   304     07DF  2FE4               	goto	l587
+   305     07E0                     u30:
+   306     07E0                     l583:
+   307                           
+   308                           ;main.c: 19:     once=1;
+   309     07E0  01F0               	clrf	_once
+   310     07E1  01F1               	clrf	_once+1
+   311     07E2                     l585:
+   312                           
+   313                           ;main.c: 20: }
+   314     07E2  3001               	movlw	1
+   315     07E3  0688               	xorwf	8,f
+   316     07E4                     l587:
+   317                           
+   318                           ;main.c: 22: }
+   319     07E4  1D86               	btfss	6,3	;volatile
+   320     07E5  2FE7               	goto	u41
+   321     07E6  2FE8               	goto	u40
+   322     07E7                     u41:
+   323     07E7  2FC4               	goto	l18
+   324     07E8                     u40:
+   325     07E8                     l589:
+   326     07E8  3001               	movlw	1
+   327     07E9  00F0               	movwf	_once
+   328     07EA  3000               	movlw	0
+   329     07EB  00F1               	movwf	_once+1
+   330     07EC  2FC4               	goto	l18
+   331     07ED  120A  118A  2800   	ljmp	start
+   332     07F0                     __end_of_main:
+   333     0002                     ___latbits      equ	2
+   334     007E                     btemp           set	126	;btemp
+   335     007E                     wtemp0          set	126
+   336                           
+   337                           	psect	config
+   338                           
+   339                           ;Config register CONFIG @ 0x2007
+   340                           ;	Oscillator Selection bits
+   341                           ;	FOSC = 0x3, unprogrammed default
+   342                           ;	Watchdog Timer Enable bit
+   343                           ;	WDTE = OFF, WDT disabled
+   344                           ;	Power-up Timer Enable bit
+   345                           ;	PWRTE = 0x1, unprogrammed default
+   346                           ;	Brown-out Reset Enable bit
+   347                           ;	BOREN = 0x1, unprogrammed default
+   348                           ;	Low-Voltage (Single-Supply) In-Circuit Serial Programming Enable bit
+   349                           ;	LVP = 0x1, unprogrammed default
+   350                           ;	Data EEPROM Memory Code Protection bit
+   351                           ;	CPD = 0x1, unprogrammed default
+   352                           ;	Flash Program Memory Write Enable bits
+   353                           ;	WRT = 0x3, unprogrammed default
+   354                           ;	In-Circuit Debugger Mode bit
+   355                           ;	DEBUG = 0x1, unprogrammed default
+   356                           ;	Flash Program Memory Code Protection bit
+   357                           ;	CP = 0x1, unprogrammed default
+   358     2007                     	org	8199
+   359     2007  3FFB               	dw	16379
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        2
+    BSS         0
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON           14      2       4
+    BANK0            80      0       0
+    BANK1            80      0       0
+    BANK3            96      0       0
+    BANK2            96      0       0
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMMON
+
+    None.
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 2     2      0      30
+                                              0 COMMON     2     2      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 0
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+
+Address spaces:
+Name               Size   Autos  Total    Usage
+BANK3               96      0       0      0.0%
+BITBANK3            96      0       0      0.0%
+BANK2               96      0       0      0.0%
+BITBANK2            96      0       0      0.0%
+BANK1               80      0       0      0.0%
+BITBANK1            80      0       0      0.0%
+BANK0               80      0       0      0.0%
+BITBANK0            80      0       0      0.0%
+COMMON              14      2       4     28.6%
+BITCOMMON           14      0       0      0.0%
+DATA                 0      0       4      0.0%
+STACK                0      0       0      0.0%
+
+
+Microchip Technology PIC Macro Assembler V3.00 build 20241204225717 
+Symbol Table                                                                                   Mon Jan 27 20:44:15 2025
+
+                     l20 07D4                       l18 07C4                       u10 07D4  
+                     u11 07D3                       u20 07DA                       u21 07D9  
+                     u30 07E0                       u31 07DF                       u40 07E8  
+                     u41 07E7                      l571 07C4                      l581 07DA  
+                    l583 07E0                      l585 07E2                      l577 07C8  
+                    l587 07E4                      l579 07CE                      l589 07E8  
+                    _RB3 0033                      _RD0 0040                     _main 07C4  
+                   _once 0070                     btemp 007E                     start 0000  
+                  ?_main 0072                    status 0003                    wtemp0 007E  
+        __initialization 07F0             __end_of_main 07F0                   ??_main 0072  
+                 _TRISB3 0433                   _TRISD0 0440             __pdataCOMMON 0070  
+__end_of__initialization 07FC           __pcstackCOMMON 0072               __pmaintext 07C4  
+   end_of_initialization 07FC            __pidataCOMMON 07C2      start_initialization 07F0  
+              ___latbits 0002                 main@wait 0072  
