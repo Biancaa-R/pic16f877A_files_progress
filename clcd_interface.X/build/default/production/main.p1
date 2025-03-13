@@ -1,0 +1,48 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"41 ./clcd.h
+[; ;./clcd.h: 41: void init_clcd(void);
+[v _init_clcd `(v ~T0 @X0 0 ef ]
+[p mainexit ]
+"42
+[; ;./clcd.h: 42: void clcd_putch(const char data, unsigned char addr);
+[v _clcd_putch `(v ~T0 @X0 0 ef2`Cuc`uc ]
+"43
+[; ;./clcd.h: 43: void clcd_print(const char *str, unsigned char addr);
+[v _clcd_print `(v ~T0 @X0 0 ef2`*Cuc`uc ]
+"11 main.c
+[p x WDTE=OFF ]
+"12
+[v _init_config `(v ~T0 @X0 1 ef ]
+"13
+{
+[e :U _init_config ]
+[f ]
+"14
+[e ( _init_clcd ..  ]
+"15
+[e :UE 7 ]
+}
+[v $root$_main `(v ~T0 @X0 0 e ]
+"16
+[v _main `(i ~T0 @X0 1 ef ]
+{
+[e :U _main ]
+[f ]
+"17
+[e ( _init_config ..  ]
+"18
+[e :U 10 ]
+{
+"19
+[e ( _clcd_putch (2 , -> -> 65 `ui `uc -> + -> 128 `i -> 0 `i `uc ]
+"20
+[e ( _clcd_print (2 , :s 1C -> + -> 192 `i -> 0 `i `uc ]
+"21
+}
+[e :U 9 ]
+[e $U 10  ]
+[e :U 11 ]
+"23
+[e :UE 8 ]
+}
+[a 1C 72 101 108 108 111 0 ]
