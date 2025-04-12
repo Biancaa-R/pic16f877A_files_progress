@@ -1,0 +1,679 @@
+
+
+Microchip MPLAB XC8 Assembler V3.00 build 20241204225717 
+                                                                                               Sun Apr 13 01:01:00 2025
+
+Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1 
+     1                           	processor	16F877A
+     2                           	pagewidth 120
+     3                           	opt	flic
+     4                           	psect	nvCOMMON,global,class=COMMON,space=1,delta=1,noexec
+     5                           	psect	cinit,global,class=CODE,space=0,merge=1,delta=2
+     6                           	psect	bssCOMMON,global,class=COMMON,space=1,delta=1,noexec
+     7                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1,noexec
+     8                           	psect	maintext,global,class=CODE,space=0,split=1,delta=2
+     9                           	psect	text1,local,class=CODE,space=0,merge=1,delta=2
+    10                           	psect	text2,local,class=CODE,space=0,merge=1,delta=2
+    11                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=2,noexec
+    12                           	dabs	1,0x7E,2
+    13     0000                     
+    14                           ; Generated 12/10/2023 GMT
+    15                           ; 
+    16                           ; Copyright © 2023, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    17                           ; All rights reserved.
+    18                           ; 
+    19                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    20                           ; 
+    21                           ; Redistribution and use in source and binary forms, with or without modification, are
+    22                           ; permitted provided that the following conditions are met:
+    23                           ; 
+    24                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    25                           ;        conditions and the following disclaimer.
+    26                           ; 
+    27                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    28                           ;        of conditions and the following disclaimer in the documentation and/or other
+    29                           ;        materials provided with the distribution. Publication is not required when
+    30                           ;        this file is used in an embedded application.
+    31                           ; 
+    32                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    33                           ;        software without specific prior written permission.
+    34                           ; 
+    35                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    36                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    37                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    38                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    39                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    40                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    41                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    42                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    43                           ; 
+    44                           ; 
+    45                           ; Code-generator required, PIC16F877A Definitions
+    46                           ; 
+    47                           ; SFR Addresses
+    48     0004                     fsr             equ	4
+    49     0004                     fsr0            equ	4
+    50     0000                     indf            equ	0
+    51     0000                     indf0           equ	0
+    52     0002                     pc              equ	2
+    53     0002                     pcl             equ	2
+    54     000A                     pclath          equ	10
+    55     0003                     status          equ	3
+    56     0000                     INDF            equ	0	;# 
+    57     0001                     TMR0            equ	1	;# 
+    58     0002                     PCL             equ	2	;# 
+    59     0003                     STATUS          equ	3	;# 
+    60     0004                     FSR             equ	4	;# 
+    61     0005                     PORTA           equ	5	;# 
+    62     0006                     PORTB           equ	6	;# 
+    63     0007                     PORTC           equ	7	;# 
+    64     0008                     PORTD           equ	8	;# 
+    65     0009                     PORTE           equ	9	;# 
+    66     000A                     PCLATH          equ	10	;# 
+    67     000B                     INTCON          equ	11	;# 
+    68     000C                     PIR1            equ	12	;# 
+    69     000D                     PIR2            equ	13	;# 
+    70     000E                     TMR1            equ	14	;# 
+    71     000E                     TMR1L           equ	14	;# 
+    72     000F                     TMR1H           equ	15	;# 
+    73     0010                     T1CON           equ	16	;# 
+    74     0011                     TMR2            equ	17	;# 
+    75     0012                     T2CON           equ	18	;# 
+    76     0013                     SSPBUF          equ	19	;# 
+    77     0014                     SSPCON          equ	20	;# 
+    78     0015                     CCPR1           equ	21	;# 
+    79     0015                     CCPR1L          equ	21	;# 
+    80     0016                     CCPR1H          equ	22	;# 
+    81     0017                     CCP1CON         equ	23	;# 
+    82     0018                     RCSTA           equ	24	;# 
+    83     0019                     TXREG           equ	25	;# 
+    84     001A                     RCREG           equ	26	;# 
+    85     001B                     CCPR2           equ	27	;# 
+    86     001B                     CCPR2L          equ	27	;# 
+    87     001C                     CCPR2H          equ	28	;# 
+    88     001D                     CCP2CON         equ	29	;# 
+    89     001E                     ADRESH          equ	30	;# 
+    90     001F                     ADCON0          equ	31	;# 
+    91     0081                     OPTION_REG      equ	129	;# 
+    92     0085                     TRISA           equ	133	;# 
+    93     0086                     TRISB           equ	134	;# 
+    94     0087                     TRISC           equ	135	;# 
+    95     0088                     TRISD           equ	136	;# 
+    96     0089                     TRISE           equ	137	;# 
+    97     008C                     PIE1            equ	140	;# 
+    98     008D                     PIE2            equ	141	;# 
+    99     008E                     PCON            equ	142	;# 
+   100     0091                     SSPCON2         equ	145	;# 
+   101     0092                     PR2             equ	146	;# 
+   102     0093                     SSPADD          equ	147	;# 
+   103     0094                     SSPSTAT         equ	148	;# 
+   104     0098                     TXSTA           equ	152	;# 
+   105     0099                     SPBRG           equ	153	;# 
+   106     009C                     CMCON           equ	156	;# 
+   107     009D                     CVRCON          equ	157	;# 
+   108     009E                     ADRESL          equ	158	;# 
+   109     009F                     ADCON1          equ	159	;# 
+   110     010C                     EEDATA          equ	268	;# 
+   111     010D                     EEADR           equ	269	;# 
+   112     010E                     EEDATH          equ	270	;# 
+   113     010F                     EEADRH          equ	271	;# 
+   114     018C                     EECON1          equ	396	;# 
+   115     018D                     EECON2          equ	397	;# 
+   116     0000                     INDF            equ	0	;# 
+   117     0001                     TMR0            equ	1	;# 
+   118     0002                     PCL             equ	2	;# 
+   119     0003                     STATUS          equ	3	;# 
+   120     0004                     FSR             equ	4	;# 
+   121     0005                     PORTA           equ	5	;# 
+   122     0006                     PORTB           equ	6	;# 
+   123     0007                     PORTC           equ	7	;# 
+   124     0008                     PORTD           equ	8	;# 
+   125     0009                     PORTE           equ	9	;# 
+   126     000A                     PCLATH          equ	10	;# 
+   127     000B                     INTCON          equ	11	;# 
+   128     000C                     PIR1            equ	12	;# 
+   129     000D                     PIR2            equ	13	;# 
+   130     000E                     TMR1            equ	14	;# 
+   131     000E                     TMR1L           equ	14	;# 
+   132     000F                     TMR1H           equ	15	;# 
+   133     0010                     T1CON           equ	16	;# 
+   134     0011                     TMR2            equ	17	;# 
+   135     0012                     T2CON           equ	18	;# 
+   136     0013                     SSPBUF          equ	19	;# 
+   137     0014                     SSPCON          equ	20	;# 
+   138     0015                     CCPR1           equ	21	;# 
+   139     0015                     CCPR1L          equ	21	;# 
+   140     0016                     CCPR1H          equ	22	;# 
+   141     0017                     CCP1CON         equ	23	;# 
+   142     0018                     RCSTA           equ	24	;# 
+   143     0019                     TXREG           equ	25	;# 
+   144     001A                     RCREG           equ	26	;# 
+   145     001B                     CCPR2           equ	27	;# 
+   146     001B                     CCPR2L          equ	27	;# 
+   147     001C                     CCPR2H          equ	28	;# 
+   148     001D                     CCP2CON         equ	29	;# 
+   149     001E                     ADRESH          equ	30	;# 
+   150     001F                     ADCON0          equ	31	;# 
+   151     0081                     OPTION_REG      equ	129	;# 
+   152     0085                     TRISA           equ	133	;# 
+   153     0086                     TRISB           equ	134	;# 
+   154     0087                     TRISC           equ	135	;# 
+   155     0088                     TRISD           equ	136	;# 
+   156     0089                     TRISE           equ	137	;# 
+   157     008C                     PIE1            equ	140	;# 
+   158     008D                     PIE2            equ	141	;# 
+   159     008E                     PCON            equ	142	;# 
+   160     0091                     SSPCON2         equ	145	;# 
+   161     0092                     PR2             equ	146	;# 
+   162     0093                     SSPADD          equ	147	;# 
+   163     0094                     SSPSTAT         equ	148	;# 
+   164     0098                     TXSTA           equ	152	;# 
+   165     0099                     SPBRG           equ	153	;# 
+   166     009C                     CMCON           equ	156	;# 
+   167     009D                     CVRCON          equ	157	;# 
+   168     009E                     ADRESL          equ	158	;# 
+   169     009F                     ADCON1          equ	159	;# 
+   170     010C                     EEDATA          equ	268	;# 
+   171     010D                     EEADR           equ	269	;# 
+   172     010E                     EEDATH          equ	270	;# 
+   173     010F                     EEADRH          equ	271	;# 
+   174     018C                     EECON1          equ	396	;# 
+   175     018D                     EECON2          equ	397	;# 
+   176                           
+   177                           	psect	nvCOMMON
+   178     0070                     __pnvCOMMON:
+   179     0070                     _pwm80_high:
+   180     0070                     	ds	1
+   181     0071                     _pwm50_high:
+   182     0071                     	ds	1
+   183     0072                     _pwm10_high:
+   184     0072                     	ds	1
+   185     0073                     _pwm10_low:
+   186     0073                     	ds	1
+   187     0012                     _T2CON          set	18
+   188     0017                     _CCP1CON        set	23
+   189     0015                     _CCPR1L         set	21
+   190     0092                     _PR2            set	146
+   191     0087                     _TRISC          set	135
+   192                           
+   193                           	psect	cinit
+   194     07FA                     start_initialization:	
+   195                           ; #config settings
+   196                           
+   197     07FA                     __initialization:
+   198                           
+   199                           ; Clear objects allocated to COMMON
+   200     07FA  01F7               	clrf	__pbssCOMMON& (0+127)
+   201     07FB  01F8               	clrf	(__pbssCOMMON+1)& (0+127)
+   202     07FC                     end_of_initialization:	
+   203                           ;End of C runtime variable initialization code
+   204                           
+   205     07FC                     __end_of__initialization:
+   206     07FC  0183               	clrf	3
+   207     07FD  120A  118A  2F7B   	ljmp	_main	;jump to C main() function
+   208                           
+   209                           	psect	bssCOMMON
+   210     0077                     __pbssCOMMON:
+   211     0077                     _pwm80_low:
+   212     0077                     	ds	1
+   213     0078                     _pwm50_low:
+   214     0078                     	ds	1
+   215                           
+   216                           	psect	cstackCOMMON
+   217     0074                     __pcstackCOMMON:
+   218     0074                     ?_pwm_init:
+   219     0074                     ?_pwm_dutycycle_update:	
+   220                           ; 1 bytes @ 0x0
+   221                           
+   222     0074                     ?_main:	
+   223                           ; 1 bytes @ 0x0
+   224                           
+   225     0074                     ??_pwm_init:	
+   226                           ; 1 bytes @ 0x0
+   227                           
+   228     0074                     ??_pwm_dutycycle_update:	
+   229                           ; 1 bytes @ 0x0
+   230                           
+   231                           
+   232                           ; 1 bytes @ 0x0
+   233     0074                     	ds	3
+   234     0077                     ??_main:
+   235                           
+   236                           	psect	maintext
+   237     077B                     __pmaintext:	
+   238                           ; 1 bytes @ 0x3
+   239 ;;
+   240 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   241 ;;
+   242 ;; *************** function _main *****************
+   243 ;; Defined at:
+   244 ;;		line 39 in file "main.c"
+   245 ;; Parameters:    Size  Location     Type
+   246 ;;		None
+   247 ;; Auto vars:     Size  Location     Type
+   248 ;;		None
+   249 ;; Return value:  Size  Location     Type
+   250 ;;                  1    wreg      void 
+   251 ;; Registers used:
+   252 ;;		wreg, status,2, status,0, pclath, cstack
+   253 ;; Tracked objects:
+   254 ;;		On entry : B00/0
+   255 ;;		On exit  : 0/0
+   256 ;;		Unchanged: 0/0
+   257 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   258 ;;      Params:         0       0       0       0       0
+   259 ;;      Locals:         0       0       0       0       0
+   260 ;;      Temps:          0       0       0       0       0
+   261 ;;      Totals:         0       0       0       0       0
+   262 ;;Total ram usage:        0 bytes
+   263 ;; Hardware stack levels required when called: 1
+   264 ;; This function calls:
+   265 ;;		_pwm_dutycycle_update
+   266 ;;		_pwm_init
+   267 ;; This function is called by:
+   268 ;;		Startup code after reset
+   269 ;; This function uses a non-reentrant model
+   270 ;;
+   271                           
+   272     077B                     _main:	
+   273                           ;psect for function _main
+   274                           
+   275     077B                     l606:	
+   276                           ;incstack = 0
+   277                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
+   278                           
+   279                           
+   280                           ;main.c: 40:     pwm_init();
+   281     077B  120A  118A  2789  120A  118A  	fcall	_pwm_init
+   282     0780                     l608:
+   283                           
+   284                           ;main.c: 42:         pwm_dutycycle_update();
+   285     0780  120A  118A  27A2  120A  118A  	fcall	_pwm_dutycycle_update
+   286     0785  2F80               	goto	l608
+   287     0786  120A  118A  2800   	ljmp	start
+   288     0789                     __end_of_main:
+   289                           
+   290                           	psect	text1
+   291     0789                     __ptext1:	
+   292 ;; *************** function _pwm_init *****************
+   293 ;; Defined at:
+   294 ;;		line 74 in file "main.c"
+   295 ;; Parameters:    Size  Location     Type
+   296 ;;		None
+   297 ;; Auto vars:     Size  Location     Type
+   298 ;;		None
+   299 ;; Return value:  Size  Location     Type
+   300 ;;                  1    wreg      void 
+   301 ;; Registers used:
+   302 ;;		status,2
+   303 ;; Tracked objects:
+   304 ;;		On entry : 0/0
+   305 ;;		On exit  : 0/0
+   306 ;;		Unchanged: 0/0
+   307 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   308 ;;      Params:         0       0       0       0       0
+   309 ;;      Locals:         0       0       0       0       0
+   310 ;;      Temps:          0       0       0       0       0
+   311 ;;      Totals:         0       0       0       0       0
+   312 ;;Total ram usage:        0 bytes
+   313 ;; Hardware stack levels used: 1
+   314 ;; This function calls:
+   315 ;;		Nothing
+   316 ;; This function is called by:
+   317 ;;		_main
+   318 ;; This function uses a non-reentrant model
+   319 ;;
+   320                           
+   321     0789                     _pwm_init:	
+   322                           ;psect for function _pwm_init
+   323                           
+   324     0789                     l586:	
+   325                           ;incstack = 0
+   326                           ; Regs used in _pwm_init: [status,2]
+   327                           
+   328                           
+   329                           ;main.c: 76:     TRISC= 0xFB;
+   330     0789  30FB               	movlw	251
+   331     078A  1683               	bsf	3,5	;RP0=1, select bank1
+   332     078B  1303               	bcf	3,6	;RP1=0, select bank1
+   333     078C  0087               	movwf	7	;volatile
+   334                           
+   335                           ;main.c: 77:     CCP1CON=0x0c;
+   336     078D  300C               	movlw	12
+   337     078E  1283               	bcf	3,5	;RP0=0, select bank0
+   338     078F  1303               	bcf	3,6	;RP1=0, select bank0
+   339     0790  0097               	movwf	23	;volatile
+   340                           
+   341                           ;main.c: 79:     T2CON =0x06;
+   342     0791  3006               	movlw	6
+   343     0792  0092               	movwf	18	;volatile
+   344                           
+   345                           ;main.c: 82:     PR2=0x5E;
+   346     0793  305E               	movlw	94
+   347     0794  1683               	bsf	3,5	;RP0=1, select bank1
+   348     0795  1303               	bcf	3,6	;RP1=0, select bank1
+   349     0796  0092               	movwf	18	;volatile
+   350                           
+   351                           ;main.c: 83:     pwm10_low=0x02;
+   352     0797  3002               	movlw	2
+   353     0798  00F3               	movwf	_pwm10_low
+   354                           
+   355                           ;main.c: 84:     pwm10_high=0x09;
+   356     0799  3009               	movlw	9
+   357     079A  00F2               	movwf	_pwm10_high
+   358                           
+   359                           ;main.c: 86:     pwm50_high =0x2F;
+   360     079B  302F               	movlw	47
+   361     079C  00F1               	movwf	_pwm50_high
+   362     079D                     l588:
+   363                           
+   364                           ;main.c: 87:     pwm50_low =0x00;
+   365     079D  01F8               	clrf	_pwm50_low
+   366     079E                     l590:
+   367                           
+   368                           ;main.c: 88:     pwm80_high =0x4B;
+   369     079E  304B               	movlw	75
+   370     079F  00F0               	movwf	_pwm80_high
+   371                           
+   372                           ;main.c: 89:     pwm80_low =0x00;
+   373     07A0  01F7               	clrf	_pwm80_low
+   374     07A1                     l42:
+   375     07A1  0008               	return
+   376     07A2                     __end_of_pwm_init:
+   377                           
+   378                           	psect	text2
+   379     07A2                     __ptext2:	
+   380 ;; *************** function _pwm_dutycycle_update *****************
+   381 ;; Defined at:
+   382 ;;		line 60 in file "main.c"
+   383 ;; Parameters:    Size  Location     Type
+   384 ;;		None
+   385 ;; Auto vars:     Size  Location     Type
+   386 ;;		None
+   387 ;; Return value:  Size  Location     Type
+   388 ;;                  1    wreg      void 
+   389 ;; Registers used:
+   390 ;;		wreg, status,2, status,0
+   391 ;; Tracked objects:
+   392 ;;		On entry : 0/0
+   393 ;;		On exit  : 0/0
+   394 ;;		Unchanged: 0/0
+   395 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   396 ;;      Params:         0       0       0       0       0
+   397 ;;      Locals:         0       0       0       0       0
+   398 ;;      Temps:          3       0       0       0       0
+   399 ;;      Totals:         3       0       0       0       0
+   400 ;;Total ram usage:        3 bytes
+   401 ;; Hardware stack levels used: 1
+   402 ;; This function calls:
+   403 ;;		Nothing
+   404 ;; This function is called by:
+   405 ;;		_main
+   406 ;; This function uses a non-reentrant model
+   407 ;;
+   408                           
+   409     07A2                     _pwm_dutycycle_update:	
+   410                           ;psect for function _pwm_dutycycle_update
+   411                           
+   412     07A2                     l592:	
+   413                           ;incstack = 0
+   414                           ; Regs used in _pwm_dutycycle_update: [wreg+status,2+status,0]
+   415                           
+   416                           
+   417                           ;main.c: 61:     CCPR1L = pwm10_high;
+   418     07A2  0872               	movf	_pwm10_high,w
+   419     07A3  1283               	bcf	3,5	;RP0=0, select bank0
+   420     07A4  1303               	bcf	3,6	;RP1=0, select bank0
+   421     07A5  0095               	movwf	21	;volatile
+   422     07A6                     l594:
+   423                           
+   424                           ;main.c: 62:     CCP1CON = (CCP1CON & 0xCF) | ((pwm10_low ) << 4);
+   425     07A6  0873               	movf	_pwm10_low,w
+   426     07A7  00F4               	movwf	??_pwm_dutycycle_update
+   427     07A8  3004               	movlw	4
+   428     07A9                     u15:
+   429     07A9  1003               	clrc
+   430     07AA  0DF4               	rlf	??_pwm_dutycycle_update,f
+   431     07AB  3EFF               	addlw	-1
+   432     07AC  1D03               	skipz
+   433     07AD  2FA9               	goto	u15
+   434     07AE  0817               	movf	23,w	;volatile
+   435     07AF  39CF               	andlw	207
+   436     07B0  0474               	iorwf	??_pwm_dutycycle_update,w
+   437     07B1  0097               	movwf	23	;volatile
+   438     07B2                     l596:
+   439                           
+   440                           ;main.c: 63:     _delay((unsigned long)((3000)*(6000000/4000.0)));
+   441     07B2  3017               	movlw	23
+   442     07B3  00F6               	movwf	??_pwm_dutycycle_update+2
+   443     07B4  30D5               	movlw	213
+   444     07B5  00F5               	movwf	??_pwm_dutycycle_update+1
+   445     07B6  3016               	movlw	22
+   446     07B7  00F4               	movwf	??_pwm_dutycycle_update
+   447     07B8                     u47:
+   448     07B8  0BF4               	decfsz	??_pwm_dutycycle_update,f
+   449     07B9  2FB8               	goto	u47
+   450     07BA  0BF5               	decfsz	??_pwm_dutycycle_update+1,f
+   451     07BB  2FB8               	goto	u47
+   452     07BC  0BF6               	decfsz	??_pwm_dutycycle_update+2,f
+   453     07BD  2FB8               	goto	u47
+   454     07BE  0000               	nop
+   455     07BF                     l598:
+   456                           
+   457                           ;main.c: 65:     CCPR1L = pwm50_high;
+   458     07BF  0871               	movf	_pwm50_high,w
+   459     07C0  1283               	bcf	3,5	;RP0=0, select bank0
+   460     07C1  1303               	bcf	3,6	;RP1=0, select bank0
+   461     07C2  0095               	movwf	21	;volatile
+   462     07C3                     l600:
+   463                           
+   464                           ;main.c: 66:     CCP1CON = (CCP1CON & 0xCF) | ((pwm50_low ) << 4);
+   465     07C3  0878               	movf	_pwm50_low,w
+   466     07C4  00F4               	movwf	??_pwm_dutycycle_update
+   467     07C5  3004               	movlw	4
+   468     07C6                     u25:
+   469     07C6  1003               	clrc
+   470     07C7  0DF4               	rlf	??_pwm_dutycycle_update,f
+   471     07C8  3EFF               	addlw	-1
+   472     07C9  1D03               	skipz
+   473     07CA  2FC6               	goto	u25
+   474     07CB  0817               	movf	23,w	;volatile
+   475     07CC  39CF               	andlw	207
+   476     07CD  0474               	iorwf	??_pwm_dutycycle_update,w
+   477     07CE  0097               	movwf	23	;volatile
+   478                           
+   479                           ;main.c: 67:     _delay((unsigned long)((3000)*(6000000/4000.0)));
+   480     07CF  3017               	movlw	23
+   481     07D0  00F6               	movwf	??_pwm_dutycycle_update+2
+   482     07D1  30D5               	movlw	213
+   483     07D2  00F5               	movwf	??_pwm_dutycycle_update+1
+   484     07D3  3016               	movlw	22
+   485     07D4  00F4               	movwf	??_pwm_dutycycle_update
+   486     07D5                     u57:
+   487     07D5  0BF4               	decfsz	??_pwm_dutycycle_update,f
+   488     07D6  2FD5               	goto	u57
+   489     07D7  0BF5               	decfsz	??_pwm_dutycycle_update+1,f
+   490     07D8  2FD5               	goto	u57
+   491     07D9  0BF6               	decfsz	??_pwm_dutycycle_update+2,f
+   492     07DA  2FD5               	goto	u57
+   493     07DB  0000               	nop
+   494                           
+   495                           ;main.c: 69:     CCPR1L = pwm80_high;
+   496     07DC  0870               	movf	_pwm80_high,w
+   497     07DD  1283               	bcf	3,5	;RP0=0, select bank0
+   498     07DE  1303               	bcf	3,6	;RP1=0, select bank0
+   499     07DF  0095               	movwf	21	;volatile
+   500     07E0                     l602:
+   501                           
+   502                           ;main.c: 70:     CCP1CON = (CCP1CON & 0xCF) | ((pwm80_low ) << 4);
+   503     07E0  0877               	movf	_pwm80_low,w
+   504     07E1  00F4               	movwf	??_pwm_dutycycle_update
+   505     07E2  3004               	movlw	4
+   506     07E3                     u35:
+   507     07E3  1003               	clrc
+   508     07E4  0DF4               	rlf	??_pwm_dutycycle_update,f
+   509     07E5  3EFF               	addlw	-1
+   510     07E6  1D03               	skipz
+   511     07E7  2FE3               	goto	u35
+   512     07E8  0817               	movf	23,w	;volatile
+   513     07E9  39CF               	andlw	207
+   514     07EA  0474               	iorwf	??_pwm_dutycycle_update,w
+   515     07EB  0097               	movwf	23	;volatile
+   516     07EC                     l604:
+   517                           
+   518                           ;main.c: 71:     _delay((unsigned long)((3000)*(6000000/4000.0)));
+   519     07EC  3017               	movlw	23
+   520     07ED  00F6               	movwf	??_pwm_dutycycle_update+2
+   521     07EE  30D5               	movlw	213
+   522     07EF  00F5               	movwf	??_pwm_dutycycle_update+1
+   523     07F0  3016               	movlw	22
+   524     07F1  00F4               	movwf	??_pwm_dutycycle_update
+   525     07F2                     u67:
+   526     07F2  0BF4               	decfsz	??_pwm_dutycycle_update,f
+   527     07F3  2FF2               	goto	u67
+   528     07F4  0BF5               	decfsz	??_pwm_dutycycle_update+1,f
+   529     07F5  2FF2               	goto	u67
+   530     07F6  0BF6               	decfsz	??_pwm_dutycycle_update+2,f
+   531     07F7  2FF2               	goto	u67
+   532     07F8  0000               	nop
+   533     07F9                     l39:
+   534     07F9  0008               	return
+   535     07FA                     __end_of_pwm_dutycycle_update:
+   536     0002                     ___latbits      equ	2
+   537     007E                     btemp           set	126	;btemp
+   538     007E                     wtemp0          set	126
+   539                           
+   540                           	psect	config
+   541                           
+   542                           ;Config register CONFIG @ 0x2007
+   543                           ;	Oscillator Selection bits
+   544                           ;	FOSC = EXTRC, RC oscillator
+   545                           ;	Watchdog Timer Enable bit
+   546                           ;	WDTE = OFF, WDT disabled
+   547                           ;	Power-up Timer Enable bit
+   548                           ;	PWRTE = OFF, PWRT disabled
+   549                           ;	Brown-out Reset Enable bit
+   550                           ;	BOREN = OFF, BOR disabled
+   551                           ;	Low-Voltage (Single-Supply) In-Circuit Serial Programming Enable bit
+   552                           ;	LVP = OFF, RB3 is digital I/O, HV on MCLR must be used for programming
+   553                           ;	Data EEPROM Memory Code Protection bit
+   554                           ;	CPD = OFF, Data EEPROM code protection off
+   555                           ;	Flash Program Memory Write Enable bits
+   556                           ;	WRT = OFF, Write protection off; all program memory may be written to by EECON control
+   557                           ;	In-Circuit Debugger Mode bit
+   558                           ;	DEBUG = 0x1, unprogrammed default
+   559                           ;	Flash Program Memory Code Protection bit
+   560                           ;	CP = OFF, Code protection off
+   561     2007                     	org	8199
+   562     2007  3F3B               	dw	16187
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         2
+    Persistent  4
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON           14      3       9
+    BANK0            80      0       0
+    BANK1            80      0       0
+    BANK3            96      0       0
+    BANK2            96      0       0
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMMON
+
+    _main->_pwm_dutycycle_update
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 0     0      0       0
+               _pwm_dutycycle_update
+                           _pwm_init
+ ---------------------------------------------------------------------------------
+ (1) _pwm_init                                             0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _pwm_dutycycle_update                                 3     3      0       0
+                                              0 COMMON     3     3      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 1
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _pwm_dutycycle_update
+   _pwm_init
+
+Address spaces:
+Name               Size   Autos  Total    Usage
+BITCOMMON           14      0       0      0.0%
+BITBANK0            80      0       0      0.0%
+BITBANK1            80      0       0      0.0%
+BITBANK3            96      0       0      0.0%
+BITBANK2            96      0       0      0.0%
+COMMON              14      3       9     64.3%
+BANK0               80      0       0      0.0%
+BANK1               80      0       0      0.0%
+BANK3               96      0       0      0.0%
+BANK2               96      0       0      0.0%
+STACK                0      0       0      0.0%
+DATA                 0      0       9      0.0%
+
+
+Microchip Technology PIC Macro Assembler V3.00 build 20241204225717 
+Symbol Table                                                                                   Sun Apr 13 01:01:00 2025
+
+                          l42 07A1                            l39 07F9                            u15 07A9  
+                          u25 07C6                            u35 07E3                            u47 07B8  
+                          u57 07D5                            u67 07F2                           l600 07C3  
+                         l602 07E0                           l604 07EC                           l606 077B  
+                         l608 0780                           l590 079E                           l592 07A2  
+                         l594 07A6                           l586 0789                           l596 07B2  
+                         l588 079D                           l598 07BF                           _PR2 0092  
+                        _main 077B                          btemp 007E                          start 0000  
+        _pwm_dutycycle_update 07A2                         ?_main 0074                         _T2CON 0012  
+                       _TRISC 0087                         status 0003                         wtemp0 007E  
+             __initialization 07FA         ?_pwm_dutycycle_update 0074                  __end_of_main 0789  
+                      ??_main 0077                        _CCPR1L 0015              __end_of_pwm_init 07A2  
+     __end_of__initialization 07FC        ??_pwm_dutycycle_update 0074                __pcstackCOMMON 0074  
+                  __pnvCOMMON 0070                    __pmaintext 077B                       _CCP1CON 0017  
+                   ?_pwm_init 0074                       __ptext1 0789                       __ptext2 07A2  
+                  _pwm10_high 0072                    _pwm50_high 0071                    _pwm80_high 0070  
+        end_of_initialization 07FC                    ??_pwm_init 0074           start_initialization 07FA  
+                 __pbssCOMMON 0077                     ___latbits 0002                     _pwm10_low 0073  
+                   _pwm50_low 0078                     _pwm80_low 0077                      _pwm_init 0789  
+__end_of_pwm_dutycycle_update 07FA  
