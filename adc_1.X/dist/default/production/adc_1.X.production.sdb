@@ -1,0 +1,135 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F877A ]
+[d frameptr 0 ]
+"5 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"10 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"15 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+"4 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\Umul8.c
+[v ___bmul __bmul `(uc  1 e 1 0 ]
+"4 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"29 D:\avr_atmega328p\adc_1.X\main.c
+[v _lcd_command lcd_command `(v  1 e 1 0 ]
+"40
+[v _initLCD initLCD `(v  1 e 1 0 ]
+"58
+[v _lcd_data lcd_data `(v  1 e 1 0 ]
+"101
+[v _delay_ms delay_ms `(v  1 e 1 0 ]
+"108
+[v _lcd_num_conv lcd_num_conv `(v  1 e 1 0 ]
+"145
+[v _main main `(v  1 e 1 0 ]
+"216 D:/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc/pic16f877a.h
+[v _PORTB PORTB `VEuc  1 e 1 @6 ]
+"278
+[v _PORTC PORTC `VEuc  1 e 1 @7 ]
+"340
+[v _PORTD PORTD `VEuc  1 e 1 @8 ]
+"1152
+[v _ADRESH ADRESH `VEuc  1 e 1 @30 ]
+"1159
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @31 ]
+"1375
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+"1437
+[v _TRISC TRISC `VEuc  1 e 1 @135 ]
+"1499
+[v _TRISD TRISD `VEuc  1 e 1 @136 ]
+"2222
+[v _ADRESL ADRESL `VEuc  1 e 1 @158 ]
+"2229
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @159 ]
+"2921
+[v _TRISA0 TRISA0 `VEb  1 e 0 @1064 ]
+"24 D:\avr_atmega328p\adc_1.X\main.c
+[v _adc_high adc_high `ui  1 e 2 0 ]
+"25
+[v _adc_low adc_low `ui  1 e 2 0 ]
+[v _calibrated_val calibrated_val `ui  1 e 2 0 ]
+[v _adc_volt adc_volt `ui  1 e 2 0 ]
+"26
+[v _d1 d1 `ui  1 e 2 0 ]
+[v _d2 d2 `ui  1 e 2 0 ]
+[v _d3 d3 `ui  1 e 2 0 ]
+[v _d4 d4 `ui  1 e 2 0 ]
+"145
+[v _main main `(v  1 e 1 0 ]
+{
+"166
+} 0
+"108
+[v _lcd_num_conv lcd_num_conv `(v  1 e 1 0 ]
+{
+"111
+[v lcd_num_conv@k k `[5]uc  1 a 5 6 ]
+"110
+[v lcd_num_conv@m m `ui  1 a 2 13 ]
+"109
+[v lcd_num_conv@j j `i  1 a 2 11 ]
+[v lcd_num_conv@s s `i  1 a 2 4 ]
+"108
+[v lcd_num_conv@i i `ui  1 p 2 0 ]
+"142
+} 0
+"58
+[v _lcd_data lcd_data `(v  1 e 1 0 ]
+{
+[v lcd_data@data data `uc  1 p 1 wreg ]
+[v lcd_data@data data `uc  1 p 1 wreg ]
+[v lcd_data@data data `uc  1 p 1 2 ]
+"65
+} 0
+"15 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 11 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 7 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 9 ]
+"53
+} 0
+"5 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+{
+"10
+[v ___lwdiv@quotient quotient `ui  1 a 2 4 ]
+"11
+[v ___lwdiv@counter counter `uc  1 a 1 6 ]
+"5
+[v ___lwdiv@divisor divisor `ui  1 p 2 0 ]
+[v ___lwdiv@dividend dividend `ui  1 p 2 2 ]
+"30
+} 0
+"40 D:\avr_atmega328p\adc_1.X\main.c
+[v _initLCD initLCD `(v  1 e 1 0 ]
+{
+"56
+} 0
+"29
+[v _lcd_command lcd_command `(v  1 e 1 0 ]
+{
+[v lcd_command@cmd cmd `uc  1 p 1 wreg ]
+[v lcd_command@cmd cmd `uc  1 p 1 wreg ]
+[v lcd_command@cmd cmd `uc  1 p 1 2 ]
+"36
+} 0
+"101
+[v _delay_ms delay_ms `(v  1 e 1 0 ]
+{
+"103
+[v delay_ms@i i `i  1 a 2 2 ]
+"101
+[v delay_ms@count count `ui  1 p 2 0 ]
+"106
+} 0
