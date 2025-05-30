@@ -1,0 +1,101 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F877A ]
+[d frameptr 0 ]
+"10 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"33 D:\avr_atmega328p\uart_slave.X\main.c
+[v _main main `(v  1 e 1 0 ]
+"71
+[v _uart_init uart_init `(v  1 e 1 0 ]
+"84
+[v _lcd_init lcd_init `(v  1 e 1 0 ]
+"92
+[v _lcd_cmd lcd_cmd `(v  1 e 1 0 ]
+"98
+[v _lcd_data lcd_data `(v  1 e 1 0 ]
+"104
+[v _lcd_clear lcd_clear `(v  1 e 1 0 ]
+"109
+[v _lcd_display lcd_display `(v  1 e 1 0 ]
+"340 D:/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc/pic16f877a.h
+[v _PORTD PORTD `VEuc  1 e 1 @8 ]
+"964
+[v _RCSTA RCSTA `VEuc  1 e 1 @24 ]
+"1059
+[v _TXREG TXREG `VEuc  1 e 1 @25 ]
+"1066
+[v _RCREG RCREG `VEuc  1 e 1 @26 ]
+"1437
+[v _TRISC TRISC `VEuc  1 e 1 @135 ]
+"1499
+[v _TRISD TRISD `VEuc  1 e 1 @136 ]
+"1999
+[v _TXSTA TXSTA `VEuc  1 e 1 @152 ]
+"2080
+[v _SPBRG SPBRG `VEuc  1 e 1 @153 ]
+"2681
+[v _RB1 RB1 `VEb  1 e 0 @49 ]
+"2687
+[v _RB3 RB3 `VEb  1 e 0 @51 ]
+"2747
+[v _RCIF RCIF `VEb  1 e 0 @101 ]
+"2942
+[v _TRISB1 TRISB1 `VEb  1 e 0 @1073 ]
+"2948
+[v _TRISB3 TRISB3 `VEb  1 e 0 @1075 ]
+"3041
+[v _TXIF TXIF `VEb  1 e 0 @100 ]
+"31 D:\avr_atmega328p\uart_slave.X\main.c
+[v _rx_buffer rx_buffer `uc  1 e 1 0 ]
+[v _tx_buffer tx_buffer `uc  1 e 1 0 ]
+"33
+[v _main main `(v  1 e 1 0 ]
+{
+"69
+} 0
+"71
+[v _uart_init uart_init `(v  1 e 1 0 ]
+{
+"82
+} 0
+"84
+[v _lcd_init lcd_init `(v  1 e 1 0 ]
+{
+"90
+} 0
+"109
+[v _lcd_display lcd_display `(v  1 e 1 0 ]
+{
+[v lcd_display@msg msg `*.24DCuc  1 p 1 3 ]
+[v lcd_display@line line `uc  1 p 1 4 ]
+"114
+} 0
+"98
+[v _lcd_data lcd_data `(v  1 e 1 0 ]
+{
+[v lcd_data@data data `uc  1 p 1 wreg ]
+[v lcd_data@data data `uc  1 p 1 wreg ]
+[v lcd_data@data data `uc  1 p 1 2 ]
+"102
+} 0
+"104
+[v _lcd_clear lcd_clear `(v  1 e 1 0 ]
+{
+"107
+} 0
+"92
+[v _lcd_cmd lcd_cmd `(v  1 e 1 0 ]
+{
+[v lcd_cmd@cmd cmd `uc  1 p 1 wreg ]
+[v lcd_cmd@cmd cmd `uc  1 p 1 wreg ]
+[v lcd_cmd@cmd cmd `uc  1 p 1 2 ]
+"96
+} 0

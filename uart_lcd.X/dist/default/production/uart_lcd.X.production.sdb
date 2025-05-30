@@ -1,0 +1,55 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F877A ]
+[d frameptr 0 ]
+"10 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"30 D:\avr_atmega328p\uart_lcd.X\main.c
+[v _main main `(i  1 e 2 0 ]
+"83
+[v _uart_init uart_init `(v  1 e 1 0 ]
+"216 D:/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc/pic16f877a.h
+[v _PORTB PORTB `VEuc  1 e 1 @6 ]
+"340
+[v _PORTD PORTD `VEuc  1 e 1 @8 ]
+"532
+[v _PIR1 PIR1 `VEuc  1 e 1 @12 ]
+"964
+[v _RCSTA RCSTA `VEuc  1 e 1 @24 ]
+"1059
+[v _TXREG TXREG `VEuc  1 e 1 @25 ]
+"1066
+[v _RCREG RCREG `VEuc  1 e 1 @26 ]
+"1255
+[v _OPTION_REG OPTION_REG `VEuc  1 e 1 @129 ]
+"1375
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+"1437
+[v _TRISC TRISC `VEuc  1 e 1 @135 ]
+"1499
+[v _TRISD TRISD `VEuc  1 e 1 @136 ]
+"1999
+[v _TXSTA TXSTA `VEuc  1 e 1 @152 ]
+"2080
+[v _SPBRG SPBRG `VEuc  1 e 1 @153 ]
+"28 D:\avr_atmega328p\uart_lcd.X\main.c
+[v _value value `uc  1 e 1 0 ]
+"29
+[v _rx_data rx_data `uc  1 e 1 0 ]
+"30
+[v _main main `(i  1 e 2 0 ]
+{
+"81
+} 0
+"83
+[v _uart_init uart_init `(v  1 e 1 0 ]
+{
+"97
+} 0
