@@ -11,6 +11,7 @@
 #define _XTAL_FREQ 6000000
 
 unsigned char arr[10] = {0xFC, 0x60, 0xDA, 0xF2, 0x66, 0xB6, 0xBE, 0xE0, 0xFE, 0xF6};
+//Values for common cathode seven segment display :)
 unsigned char i;
 
 void main(void) {
