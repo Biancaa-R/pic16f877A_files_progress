@@ -10,6 +10,9 @@
 #pragma config WRT = OFF
 #pragma config CP = OFF
 
+//This set of values work for common anode
+//connect the common terminal to VCC
+//Take 1-off ,0-on for the segments a-h ,and smile :)
 unsigned char seg[] = {0xC0,0xF9,0xA4,0xB0,0x99,0x92,0x82,0xD8,0x00,0x90};
 
 void main(void) {
